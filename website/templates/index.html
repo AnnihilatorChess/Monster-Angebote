@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Energy Angebote – Aktuelle Rabatte & Aktionen in Österreich</title>
+    <meta name="description" content="Finde die besten Monster Energy Angebote in Österreich. Spare mit aktuellen Rabatten bei Spar, BILLA, Lidl und mehr!">
+    <meta name="keywords" content="Monster Energy Angebote, Monster Energy Aktion, Monster Energy Rabatt, Monster Energy billig kaufen, Monster Energy Aktionen, Monster Energy Preisvergleich, Monster Energy Discounter, Monster Energy BILLA, Monster Energy SPAR, Monster Energy Supermarkt Angebote, Monster Energy günstige Preise, Monster Energy Sonderangebote, Monster Energy Deal, Monster Energy sparen, Energy Drink Angebote, Monster Energy Schnäppchen, Monster Energy Preis">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='android-icon-192x192.png') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('index') }}">
+                <img 
+                src="{{ url_for('static', filename='Logo.webp') }}"
+                alt="Logo"
+                loading="lazy"
+                class="logo"
+                >
+                <h1 class="logo-text">Monster Energy Angebote</h1>
+            </a>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav >
+            <ul class="nav-ul" id="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Angebote</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('benachrichtigungen') }}">Benachrichtigungen</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container more-margin">
+        <h1 class="main-h no-margin">Willkommen bei</h1>
+        <h1 class="main-h">Monster Energy Angebote</h1>
+        <p class="lead">Hier findest du Aktionen für Monster Energys in Österreich!</p>
+        <p class="lead more-margin">Es gibt aktuell folgende Monster Angebote:</p>
+        <div class="offers-container">
+            {% if offers %}
+                {% for offer in offers %}
+                    <div class="offer-card">
+                        <h2 class="price">€ {{ offer[3] }}</h2>
+                        <p class="supermarket">{{ offer[0] }}</p>
+                        <p class="date1">Gültig von: {{ offer[1] }}</p>
+                        <p class="date2">bis: {{ offer[2] }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="offer-card grey">
+                    <p class="no-offers">Keine Angebote.</p>
+                    <img src="{{ url_for('static', filename='sad_monster.webp') }}"
+                    alt="Logo"
+                    loading="lazy" class="sad-monster"
+                    >
+                </div>
+                <div class="offer-card grey">
+                    <p class="no-offers">Keine Angebote.</p>
+                    <img src="{{ url_for('static', filename='sad_monster.webp') }}"
+                    alt="Logo"
+                    loading="lazy" class="sad-monster"
+                    >
+                </div>
+            {% endif %}
+        </div>
+        <p class="subtext">
+            Um immer am Laufenden zu bleiben, kannst du dich unter <a href="{{ url_for('benachrichtigungen') }}">Benachrichtigungen</a> zur E-Mail-Benachrichtigung anmelden
+        </p>
+    </div>
+    <div class="space"></div>
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="{{ url_for('impressum') }}">Impressum</a> |
+            <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

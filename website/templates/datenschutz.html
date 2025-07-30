@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='legal.css')}}">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='android-icon-192x192.png') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('index') }}">
+                <img
+                src="{{ url_for('static', filename='Logo.webp') }}"
+                alt="Logo"
+                loading="lazy"
+                class="logo"
+                >
+                <h1 class="logo-text">Monster Energy Angebote</h1>
+            </a>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav >
+            <ul class="nav-ul" id="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Angebote</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('benachrichtigungen') }}">Benachrichtigungen</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="legal-container">
+        <h1>Datenschutzerklärung</h1>
+        <p>Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003). Diese Datenschutzerklärung informiert Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Website.</p>
+        <div class="space"></div>
+
+        <h2>1. Allgemeines</h2>
+        <p>Die Nutzung unserer Website ist grundsätzlich ohne Angabe personenbezogener Daten möglich. Personenbezogene Daten (z. B. E-Mail-Adressen) werden nur dann erhoben, wenn Sie sich für unsere E-Mail-Benachrichtigung anmelden. Diese Daten werden ohne Ihre ausdrückliche Zustimmung <strong>nicht an Dritte weitergegeben</strong>.</p>
+        <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+
+        <h2>2. Erhebung und Speicherung personenbezogener Daten</h2>
+        <p>Auf unserer Website können Sie sich für unsere E-Mail-Benachrichtigung anmelden, um Benachrichtigungen über neue Angebote zu erhalten. Dabei erheben wir folgende Daten:</p>
+        <ul>
+            <li>E-Mail-Adresse</li>
+            <li>(Optional) Name</li>
+        </ul>
+        <p>Diese Daten werden ausschließlich für den Versand der Updates genutzt und <strong>nicht an Dritte weitergegeben</strong>. Sie können sich jederzeit wieder abmelden.</p>
+
+        <h2>3. Webserver-Logs</h2>
+        <p>Zur Sicherstellung des fehlerfreien Betriebs der Website speichert unser Webserver automatisch Informationen in sogenannten Logfiles. Diese enthalten:</p>
+        <ul>
+            <li>Ihre IP-Adresse (anonymisiert)</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>Browsertyp und -version</li>
+            <li>Die besuchte Seite</li>
+        </ul>
+        <p>Diese Daten werden ausschließlich zur <strong>Fehleranalyse und Sicherheit</strong> verwendet und nach einem Monat automatisch gelöscht.</p>
+
+        <h2>4. Ihre Rechte gemäß DSGVO</h2>
+        <p>Sie haben das Recht auf:</p>
+        <ul>
+            <li>Auskunft über die gespeicherten Daten</li>
+            <li>Berichtigung falscher Daten</li>
+            <li>Löschung Ihrer Daten (sofern keine gesetzlichen Aufbewahrungspflichten bestehen)</li>
+            <li>Einschränkung der Verarbeitung</li>
+            <li>Datenübertragbarkeit</li>
+            <li>Widerspruch gegen die Verarbeitung</li>
+        </ul>
+        <p>Wir nehmen den Schutz Ihrer Daten sehr ernst und bemühen uns, Ihre Anliegen schnell und transparent zu bearbeiten.</p>
+
+        <h2>Kontakt</h2>
+        <p>Für Fragen zur Datenschutzerklärung oder zur Nutzung Ihrer Daten kontaktieren Sie uns bitte:<br> <br>
+        <strong> Monster Energy Angebote</strong><br>
+        <strong>Inhaber:</strong> Simon Danninger<br>
+        <strong>E-Mail:</strong> monster.angebote@gmail.com</p>
+    </div>
+        <footer class="footer">
+        <div class="footer-content">
+            <a href="{{ url_for('impressum') }}">Impressum</a> |
+            <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

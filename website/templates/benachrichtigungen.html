@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Energy Abo – Jetzt Angebote per E-Mail erhalten</title>
+    <meta name="description" content="Abonniere den Monster Energy Newsletter und erhalte die besten Angebote direkt per E-Mail.">
+    <meta name="keywords" content="Monster Energy Abo, Monster Energy Angebote per E-Mail, Monster Energy Newsletter">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='android-icon-192x192.png') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='Logo.webp') }}" alt="Monster Energy Logo" class="logo">
+                <h1 class="logo-text">Monster Energy Angebote</h1>
+            </a>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul class="nav-ul" id="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Angebote</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('benachrichtigungen') }}">Benachrichtigungen</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} mt-3">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <h1 class="main-h">Benachrichtigungen</h1>
+        <p class="lead more-margin">Hier kannst du dich kostenlos für E-Mail-Benachrichtigungen an- oder abmelden</p>
+
+        <div class="toggle-container">
+            <div id="anmelden" class="toggle-button active left-border" onclick="toggle(true)">Anmelden</div>
+            <div id="abmelden" class="toggle-button inactive right-border" onclick="toggle(false)">Abmelden</div>
+        </div>
+
+        <div id="content" class="content">
+            <form action="{{ url_for('benachrichtigungen') }}" method="POST">
+                <input type="hidden" name="action" id="actionInput" value="subscribe">
+
+                <div id="subscribe-fields">
+                    <input type="text" name="name" placeholder="Geben Sie Ihren Namen ein (optional)" class="form-control my-3">
+                </div>
+
+                <input type="email" name="email" placeholder="Geben Sie Ihre E-Mail ein" class="form-control my-3" required>
+
+                <div id="wholesaler-preference" class="form-check my-3">
+                    <input type="checkbox" name="wholesaler_preference" class="form-check-input" value="0">
+                    <label class="form-check-label">Angebote von Großhändlern (z.B. METRO) ausschließen</label>
+                </div>
+                <div id="datenschutz-einwilligung" class="form-check my-3">
+                    <input type="checkbox" id="datenschutz-checkbox" name="datenschutz-einwilligung" class="form-check-input" required>
+                    <label class="form-check-label">
+                        Ich habe die <a href="{{ url_for('datenschutz') }}" target="_blank">Datenschutzbestimmungen</a> gelesen und stimme zu.
+                    </label>
+                </div>
+                <button type="submit" id="submitButton" class="btn btn-primary submit-btn">Anmelden</button>
+            </form>
+            <p class="subtext" id="beschreibung-anmelden">Wenn du dich anmeldest, senden wir dir eine E-Mail, sobald es neue Monster Energy Angebote gibt.</p>
+            <p class="subtext no-display" id="beschreibung-abmelden">Wenn du dich abmeldest, bekommst du keine E-Mails mehr.</p>
+        </div>
+
+    </div>
+    <div class="space"></div>
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="{{ url_for('impressum') }}">Impressum</a> |
+            <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show");
+        }
+        function toggle(isAnmelden) {
+            document.getElementById("anmelden").classList.toggle("active", isAnmelden);
+            document.getElementById("anmelden").classList.toggle("inactive", !isAnmelden);
+            document.getElementById("abmelden").classList.toggle("active", !isAnmelden);
+            document.getElementById("abmelden").classList.toggle("inactive", isAnmelden);
+
+            const actionInput = document.getElementById("actionInput");
+            const submitButton = document.getElementById("submitButton");
+            const wholesalerPreference = document.getElementById("wholesaler-preference");
+            const datenschutzEinwilligung = document.getElementById("datenschutz-einwilligung");
+            const subscribeFields = document.getElementById("subscribe-fields");
+            const checkbox = document.getElementById("datenschutz-checkbox");
+            const beschreibungAnmelden = document.getElementById("beschreibung-anmelden");
+            const beschreibungAbmelden = document.getElementById("beschreibung-abmelden");
+
+            if (isAnmelden) {
+                actionInput.value = "subscribe";
+                submitButton.textContent = "Anmelden";
+                wholesalerPreference.style.display = "block";
+                subscribeFields.style.display = "block";
+                datenschutzEinwilligung.style.display = "block";
+                checkbox.required = true;
+                beschreibungAnmelden.style.display = "block";
+                beschreibungAbmelden.style.display = "none";
+
+            } else {
+                actionInput.value = "unsubscribe";
+                submitButton.textContent = "Abmelden";
+                wholesalerPreference.style.display = "none";
+                datenschutzEinwilligung.style.display = "none";
+                subscribeFields.style.display = "none";
+                checkbox.required = false;
+                beschreibungAnmelden.style.display = "none";
+                beschreibungAbmelden.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

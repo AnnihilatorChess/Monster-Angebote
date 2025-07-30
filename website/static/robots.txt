@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://monster-angebote.at/sitemap.xml

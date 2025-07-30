@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    background: url('../static/background.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: #d4d4d4;
+    font-family:'Arial', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #0a0a0a 0%, #111111 60%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(0, 255, 0, 0.3);
+    color: #d4d4d4;
+    align-items: center;
+}
+
+nav {
+    height: 100%;
+}
+
+.nav-ul {
+    width: 30vw;
+    height:100%;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.nav-link {
+    display: block;
+    font-size: 1.25rem;
+    padding: 0 1.4rem;
+    height: 60px;
+    line-height: 60px;
+}
+
+.nav-link:hover {
+    background: #0a520a6e;
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+}
+
+.logo-text:hover {
+    text-shadow: 1px 1px 1px rgba(0, 255, 0, 0.8);
+}
+
+.logo {
+    width: 100%;
+    max-width: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.5rem;
+    color: #d4d4d4;
+    margin-top: 8px;
+}
+
+.container {
+    margin-top: 130px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-h {
+    font-family: 'Metal Mania', cursive;
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.no-margin {
+    margin-bottom: 0;
+}
+
+.lead {
+    font-size: 1.4rem;
+    max-width: 600px;
+    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.7);
+}
+
+.subtext {
+    font-size: 1.2rem;
+    margin: 50px auto 20px;
+    max-width: 500px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+}
+
+.no-display {
+    display: none;
+}
+
+.subtext a {
+    color: #a4a4a4;
+    text-decoration: underline;
+}
+
+.more-margin {
+    margin-bottom: 30px;
+}
+
+.offers-container {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 40px auto 50px;
+    background-color: #22222277;
+    border-radius: 10px;
+}
+
+.offer-card {
+    background-color: #222;
+    border: 2px solid #00ff00;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.7);
+    transition: transform 0.3s ease-in-out;
+}
+
+.offer-card:hover {
+    transform: scale(1.05);
+}
+
+.price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00ff00;
+}
+
+.supermarket, .date1, .date2 {
+    font-size: 16px;
+    color: #bbb;
+}
+
+.date2 {
+    margin-top: -15px;
+}
+
+.no-offers {
+    text-align: center;
+    font-weight: bold;
+    color: #d4d4d4dd;
+    font-size: 16px;
+    margin-bottom: -3px;
+}
+
+.grey {
+    box-shadow: 0px 0px 15px #d4d4d4dd;
+    border: 2px solid #d4d4d4dd;
+}
+
+.sad-monster {
+    height: 70%;
+    width: 70%;
+}
+
+input, .form-check{
+    max-width: 500px;
+    margin: auto;
+}
+
+input[type="checkbox"]:checked {
+    background-color: green;
+    border-color: green;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="checkbox"]:focus,
+textarea:focus {
+    border-color: green;
+    box-shadow: 0 0 8px 3px green;
+}
+
+.form-check-label {
+    color: white;
+    width: 100%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: start;
+}
+
+.form-check-label a {
+    color: #00cc00;
+    text-decoration: underline;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #007f00 0%, #009900 100%);
+    margin-top: 15px;
+    border: 2px solid #00ff00;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #005e00 0%, #00aa00 100%);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    transform: translateY(-2px);
+    border: 2px solid #00ff00;
+}
+
+.content {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.alert {
+    max-width: 250px;
+}
+
+.toggle-container {
+
+    display: inline-flex;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.toggle-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 150px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+    border: 1px solid #d4d4d4;
+}
+
+.left-border {
+    border-radius: 5px 0 0 5px;
+}
+
+.right-border {
+    border-radius: 0 5px 5px 0;
+}
+
+.toggle-button:hover {
+    filter: brightness(1.1);
+    border: 1px solid #00ff0099;
+}
+
+.active {
+    background: linear-gradient(135deg, #007f00 0%, #009900 100%);
+    color: white;
+}
+.inactive {
+    background: linear-gradient(135deg, #aaa 0%, #777 100%);
+    color: black;
+}
+
+.menu-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+.footer {
+    background: #111;
+    color: #d4d4d4;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: #00ff00;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+.space {
+    height: 50px;
+    width: 100px;
+}
+/* Adjustments for mobile phones */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+        white-space: nowrap;
+    }
+
+    .logo-container {
+        margin-left: -10px;
+        width: auto;
+    }
+
+    .logo {
+        height: 100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav-ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        text-align: center;
+        background-color: #333;
+        position: absolute;
+        height: auto;
+        top: 60px;
+        right: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-ul.show {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        border: 2px solid green;
+        border-radius: 2px;
+    }
+    .nav-item:last-of-type, .nav-item:nth-of-type(2) {
+        border-top: none;
+    }
+
+    .main-h {
+        font-size: 2.25rem;
+        margin: 0 auto 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .no-margin {
+        margin-bottom: 0px;
+    }
+
+    .container {
+        margin: 90px 0 0;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        margin: 10px auto 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    input[type="email"],
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+
+    .offer-card {
+        width: calc(50% - 10px);
+        min-width: 150px;
+        margin-bottom: 10px;
+    }
+
+    .offers-container {
+        justify-content: space-between;
+    }
+}

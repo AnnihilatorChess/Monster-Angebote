@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='legal.css')}}">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" sizes="192x192" href="{{ url_for('static', filename='android-icon-192x192.png') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('index') }}">
+                <img
+                src="{{ url_for('static', filename='Logo.webp') }}"
+                alt="Logo"
+                loading="lazy"
+                class="logo"
+                >
+                <h1 class="logo-text">Monster Energy Angebote</h1>
+            </a>
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav >
+            <ul class="nav-ul" id="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Angebote</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('benachrichtigungen') }}">Benachrichtigungen</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="legal-container">
+        <h1>Impressum</h1>
+        <h2> </h2>
+        <p><strong>Inhaber</strong> Simon Danninger<br>
+        <strong>E-Mail:</strong> monster.angebote@gmail.com</p>
+        <div class="space"></div>
+
+        <h2> Haftungsausschluss</h2>
+        <p>Wir übernehmen <strong>keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität</strong> der dargestellten Angebote. Preisänderungen, Verfügbarkeiten oder Fehler sind jederzeit möglich.</p>
+        <p>Als Betreiber dieser Website haften wir nicht für Schäden, die aus der Nutzung oder Nichtnutzung der angebotenen Informationen entstehen.</p>
+
+        <h2>Unabhängigkeit und Markenrechte</h2>
+        <p>Diese Website ist eine unabhängige Plattform und steht in <strong>keiner geschäftlichen oder rechtlichen Verbindung</strong> zu Monster Energy oder einer Supermarktkette. Alle Markennamen, Produktbezeichnungen und Logos sind Eigentum ihrer jeweiligen Rechteinhaber.</p>
+        <p>Sollten durch die Inhalte dieser Website rechtliche oder markenrechtliche Probleme entstehen, bitten wir um eine direkte <strong>Kontaktaufnahme per E-Mail</strong>. Wir werden eventuelle Probleme <strong>umgehend prüfen und entsprechend handeln</strong>.</p>
+
+        <h2>Non-Profit-Projekt</h2>
+        <p>Diese Website ist ein <strong>rein privates, nicht-kommerzielles Projekt</strong>. Der Betreiber verfolgt mit dieser Seite keine wettbewerbsorientierten Ziele. Die Plattform dient ausschließlich informativen Zwecken und wird ohne kommerzielle Absicht betrieben – es wird kein Geld verdient, und es gibt keine Werbung oder monetäre Verknüpfungen.</p>
+
+        <h2>Kontakt</h2>
+        <p>Bei rechtlichen Fragen oder Beschwerden kontaktieren Sie uns:<br> <br>
+        <strong> Monster Energy Angebote</strong><br>
+        <strong>Inhaber:</strong> Simon Danninger<br>
+        <strong>E-Mail:</strong> monster.angebote@gmail.com</p>
+    </div>
+        <footer class="footer">
+        <div class="footer-content">
+            <a href="{{ url_for('impressum') }}">Impressum</a> |
+            <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

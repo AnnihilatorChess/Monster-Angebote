@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: #f0f0f0;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #0a0a0a 0%, #111111 60%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(0, 255, 0, 0.3);
+    color: #d4d4d4;
+    align-items: center;
+}
+
+nav {
+    height: 100%;
+}
+
+.nav-ul {
+    width: 30vw;
+    height:100%;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-right: 10px;
+}
+
+.nav-link {
+    display: block;
+    font-size: 1.25rem;
+    padding: 0 1.4rem;
+    height: 60px;
+    line-height: 60px;
+    color: #d4d4d4;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background: #0a520a6e;
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+}
+
+.logo-text:hover {
+    text-shadow: 1px 1px 1px rgba(0, 255, 0, 0.8);
+}
+
+.logo {
+    width: 100%;
+    max-width: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: 'Metal Mania', cursive;
+    font-size: 1.5rem;
+    color: #d4d4d4;
+    font-weight: 500;
+}
+
+
+.lead {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.7);
+}
+
+
+
+.menu-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+.footer {
+    margin-top: 20px;
+    background: #111;
+    color: #d4d4d4;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: #00ff00;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.legal-container {
+    font-size: 14px;
+    color: #333;
+    max-width: 800px;
+    margin: 60px auto 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.legal-container h1 {
+    font-size: 22px;
+    margin: 20px auto 20px;
+    color: #009900;
+}
+
+.legal-container h2 {
+    font-size: 18px;
+    margin: 30px auto 10px;
+}
+
+.legal-container ul, ol {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+.legal-container li {
+    margin-bottom: 5px;
+}
+
+.legal-container p {
+    margin-left: 5px;
+}
+
+.space {
+    height: 20px;
+}
+
+/* Adjustments for mobile phones */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+        white-space: nowrap;
+    }
+
+    .logo-container {
+        margin-left: -10px;
+        width: auto;
+    }
+
+    .logo {
+        height: 100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav-ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        text-align: center;
+        background-color: #333;
+        position: absolute;
+        height: auto;
+        top: 60px;
+        right: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-ul.show {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        border: 2px solid green;
+        border-radius: 2px;
+    }
+    .nav-item:last-of-type, .nav-item:nth-of-type(2) {
+        border-top: none;
+    }
+
+}
