@@ -40,8 +40,8 @@ The data collection implementation (`scraper.py`) is not included in this reposi
 ## Infrastructure
 - **Backend**: Python (Flask)
 - **Database**: Neon (PostgreSQL)
-- **Hosting**: Render (web service + scheduled tasks)
-- **Data Pipeline**: Automated daily updates
+- **Hosting**: Render (web service)
+- **Data Pipeline**: Automated via Github Actions
 
 ## How to Use
 1. Visit [monster-angebote.at](https://monster-angebote.at/) to view current offers
